@@ -1,0 +1,17 @@
+kubectl run cortijo --replicas=2 --image=enriqueramosmunoz/rolling:cortijo --port=3000
+kubectl run cortijo2 --replicas=1 --image=enriqueramosmunoz/rolling:cortijo --port=3000
+
+
+kubectl expose deployment/cortijo2 --type=LoadBalancer --port 3000 --name=my-cortijo-service2
+kubectl expose deployment/cortijo --type="NodePort" --port 3000 --name=my-cortijo-service
+
+
+kubectl patch svc my-cortijo-service -n default -p '{"spec": {"type": "NodePort", "externalIPs":["192.168.1.50"]}}'
+kubectl patch svc my-cortijo-service2 -n default -p '{"spec": {"type": "LoadBalancer", "externalIPs":["192.168.1.50"], "post":8000}}'
+
+
+minikube ip
+
+kubectl port-forward cortijo-6cd489dc5c-d6wgk 8002:31319
+
+kubectl expose cortijo-6cd489dc5c-d6wgk --port=3000 --target-port=8000
