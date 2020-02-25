@@ -1,0 +1,7 @@
+alias build="path=$(pwd) && cd ~/cortijo &&  git pull && docker-compose build && docker-compose up -d && cd $path"
+alias  exec="path=$(pwd) && cd ~/bash && bash docker_exec && cd $path"
+alias  logs="path=$(pwd) && cd ~/bash && bash docker_logs && cd $path"
+alias  restart="path=$(pwd) && cd ~/bash && bash docker_restart && cd $path"
+alias  remove="path=$(pwd) && cd ~/bash && bash docker_remove && cd $path"
+alias  stop="path=$(pwd) && cd ~/bash && bash docker_stop && cd $path"
+alias  start="path=$(pwd) && cd ~/bash && bash docker_start && cd $path"
