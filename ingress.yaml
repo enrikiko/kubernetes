@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Ingress
+metadata:
+  name: cortijo
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: load-balancer-service
+          servicePort: 80

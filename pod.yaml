@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sigle-pod-cortijo
+  labels: pods
+spec:
+  containers:
+  - name: run-as-username-demo-1
+    image: enriqueramosmunoz/cortijo-service:app_1.0
+    ports:
+      - containerPort: 3000
+  - name: run-as-username-demo-2
+    image: enriqueramosmunoz/cortijo-service:app_1.0
+    ports:
+      - containerPort: 3000

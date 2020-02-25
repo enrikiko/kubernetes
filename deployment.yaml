@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cortijo
+spec:
+  replicas: 3
+  revisionHistoryLimit: 100
+  template:
+    metadata:
+      labels:
+        app: cortijo-app
+    spec:
+      containers:
+      - name: cortijo
+        image: enriqueramosmunoz/cortijo-service:app_1.0
+        ports:
+        - name: nodejs-port
+          containerPort: 3000
