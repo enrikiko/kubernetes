@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+select enviroment in "development_dev" "development_staging" "development_demo" "development_ops_staging" "production"
+do
+  $enviroment
+  break
+done
