@@ -8,6 +8,6 @@ development_ops_staging='export ANSIBLE_VAULT_PASSWORD_FILE="~/.ansible_vault_pr
 
 select enviroment in "development_dev" "development_staging" "development_demo" "development_ops_staging" "production"
 do
-  $enviroment
+  $($enviroment)
   break
 done
