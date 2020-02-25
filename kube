@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-alias token="oathtool --totp -b $(cat ~/.aws/secretKey)"
+source token="oathtool --totp -b $(cat ~/.aws/secretKey)"
 source ~/.bash_aliases
 select enviroment in "development_dev" "development_staging" "development_demo" "development_ops_staging" "production"
 do
