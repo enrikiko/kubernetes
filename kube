@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-source ~/.bash_aliases_token
-source ~/.bash_aliases
+. ~/.bash_aliases_token
+. ~/.bash_aliases
 select enviroment in "development_dev" "development_staging" "development_demo" "development_ops_staging" "production"
 do
   $enviroment
