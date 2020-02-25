@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
-. ~/.bash_aliases_token
-. ~/.bash_aliases
+production='export ANSIBLE_VAULT_PASSWORD_FILE="~/.ansible_vault_production" && prod_env'
+development='export ANSIBLE_VAULT_PASSWORD_FILE="~/.ansible_vault"'
+development_dev='$(development) && dev_env'
+development_staging='$(development) && staging_env'
+development_demo='$(development) && demo_env'
+development_ops_staging='export ANSIBLE_VAULT_PASSWORD_FILE="~/.ansible_vault_production" && ops_staging_env'
+
 select enviroment in "development_dev" "development_staging" "development_demo" "development_ops_staging" "production"
 do
   $enviroment
