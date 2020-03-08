@@ -7,7 +7,7 @@ spec:
   selector:
     app: cortijo-app
   ports:
-    - port: 30001
-      nodePort: 30001
-      targetPort: nodejs-port
+    - port: 3000
+      #nodePort: 30001
+      #targetPort: nodejs-port
       protocol: TCP
