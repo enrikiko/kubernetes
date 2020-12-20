@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Ingress
+metadata:
+  name: cortijo-ingress-roles
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: app1.example.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: app1
+          servicePort: 80
+  - host: app2.example.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: app2
+          servicePort: 80

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cortijo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cortijo-app
+  revisionHistoryLimit: 100
+  template:
+    metadata:
+      labels:
+        app: cortijo-app
+    spec:
+      containers:
+      - name: cortijo
+        image: enriqueramosmunoz/express_node
+        ports:
+        - name: nodejs-port
+          containerPort: 3000
+        volumeMounts:
+        - mountPath: /data
+          name: data-volume-1
+      volumes:
+      - name: data-volume-1
+        configMap:
+          name: cortijo-config

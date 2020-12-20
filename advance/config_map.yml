@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cortijo-config
+  labels:
+    app: cortijo-app
+data:
+  version: "1.4"
+  db_host: "localhost:27017"
+  user.properties: |
+    user.roles=admin,basic
+    user.maximum=10
